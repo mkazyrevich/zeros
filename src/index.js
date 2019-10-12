@@ -36,43 +36,43 @@ module.exports = function zeros(expression) {
 
   for (let item of arr) {
     let b = 1;
-    let n = 1;
-    let a = 0;
+    let d = 1;
+    let number = 0;
     if (item[item.length-2]!='!') {
-      let a = +(item.substr(0,item.length-1));
-      while (Math.floor(a/Math.pow(2,b))!=0) {
-        numbOfTwos += Math.floor(a/Math.pow(2,b));
+      number = +(item.substr(0,item.length-1));
+      while (Math.floor(number/Math.pow(2,b))!=0) {
+        numbOfTwos += Math.floor(number/Math.pow(2,b));
         b++;
       }
-      while (Math.floor(a/Math.pow(5,n))!=0) {
-        numbOfFives += Math.floor(a/Math.pow(5,n));
-        n++;
+      while (Math.floor(number/Math.pow(5,d))!=0) {
+        numbOfFives += Math.floor(number/Math.pow(5,d));
+        d++;
       }
     } 
     else {
-      let a = +(item.substr(0,item.length-2));
+      number = +(item.substr(0,item.length-2));
       if (+(item.substr(0,item.length-2)%2==0)) {
-        while (Math.floor(a/Math.pow(2,b))!=0) {
-          numbOfTwos += Math.floor(a/Math.pow(2,b));
+        while (Math.floor(number/Math.pow(2,b))!=0) {
+          numbOfTwos += Math.floor(number/Math.pow(2,b));
           b++;
         }
-        numbOfFives += Math.floor(a/10);
-        n = 2;
-        while (Math.floor(a/(2*Math.pow(5,n)))!=0) {
-          numbOfFives += Math.floor(a/(2*Math.pow(5,n)));
-          n++;
+        numbOfFives += Math.floor(number/10);
+        d = 2;
+        while (Math.floor(number/(2*Math.pow(5,d)))!=0) {
+          numbOfFives += Math.floor(number/(2*Math.pow(5,d)));
+          d++;
         }
       } 
       else {
-        while (Math.floor(a/Math.pow(5,n))!=0) {
-          numbOfFives += Math.floor(a/Math.pow(5,n));
-          n++;
+        while (Math.floor(number/Math.pow(5,d))!=0) {
+          numbOfFives += Math.floor(number/Math.pow(5,d));
+          d++;
         }
-        numbOfFives -= Math.floor(a/10);
-        n = 2;
-        while (Math.floor(a/(2*Math.pow(5,n)))!=0) {
+        numbOfFives -= Math.floor(number/10);
+        d = 2;
+        while (Math.floor(number/(2*Math.pow(5,d)))!=0) {
           numbOfFives --;
-          n++;
+          d++;
         }
       }
     }
